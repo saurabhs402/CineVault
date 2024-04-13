@@ -11,7 +11,7 @@ const customError = require('./Utils/customError')
 const errorController = require('./Controllers/errorController')
 const authRouter = require('./Routes/authRouter')
 const userRouter = require('./Routes/userRouter')
-
+const homeRouter=require('./Routes/homeRouter')
 
 
 const app = express();
@@ -66,6 +66,8 @@ app.use(function (req, res, next) {
     next();
 
 })
+//
+app.use('',homeRouter);
 
 // Middleware for handling or mounting routes
 app.use('/api/v1/movies/', moviesRouter)
