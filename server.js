@@ -21,9 +21,7 @@ console.log(app.get('env'))
 //console.log(process.env)
 
 //Connecting to MongoDB
-mongoose.connect(process.env.CONN_STR, {
-    useNewUrlParser: true
-}).then(function (conn) {
+mongoose.connect(process.env.CONN_STR).then(function (conn) {
     // conn is a connection object
     //console.log(conn)
     console.log("DB connection successful")

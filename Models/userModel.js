@@ -66,7 +66,7 @@ userSchema.pre('save', async function (next) {
 
 userSchema.pre(/^find/, function (next) {
     //this keyword in the function points to current query
-    this.find({ active: { $ne: true } })
+    this.find({ active: true })
 
     next()
 

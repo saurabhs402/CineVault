@@ -47,12 +47,19 @@ const signup = asyncErrorHandler(async function (req, res, next) { // here next 
 })
 
 const login = asyncErrorHandler(async function (req, res, next) {
+    console.log('hii')
+    
     const { email, password } = req.body;
+    console.log(email)
+    console.log(password)
 
     if (!email || !password)
         throw new customError('Please provide email id and password for login in!', 400);//Bad Request
-
-    const user = await User.findOne({ email }).select('+password');
+  
+        
+    const user = await User.findOne({email:email}).select('+password');
+    console.log(user)
+    console.log('hii')
 
     if (!user || !(await user.comparePasswordInDB(password, user.password)))
         throw new customError('Incorrect email or password', 400);
