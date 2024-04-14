@@ -32,7 +32,12 @@ const castErrorHandler = function (err) {
     return new customError(msg, 400);
 }
 const duplicateKeyErrorHandler = function (err) {
-    const msg = `There is already a movie with name ${err.keyValue.name}.Please use another name !!`
+    let msg='Duplicate record.Please change the duplicate fields.'
+    if(err.keyValue.name)
+     msg = `There is already a movie with name ${err.keyValue.name}.Please use another name !!`
+    if(err.keyValue.email)
+    msg = `There is already a user with email ${err.keyValue.email}.Please use another email !!`
+    
     return new customError(msg, 400)
 }
 const validationErrorHandler = function (err) {

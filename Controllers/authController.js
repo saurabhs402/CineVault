@@ -38,7 +38,9 @@ const createSendResponse = function (user, res, statusCode) {
 
 }
 const signup = asyncErrorHandler(async function (req, res, next) { // here next is using for the asyncErrorhandler
+   
     const newUser = await User.create(req.body)
+   
 
     createSendResponse(newUser, res, 201);
 
