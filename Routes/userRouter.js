@@ -8,7 +8,7 @@ const router = express.Router();
 router.route('/getAllusers').get(userController.getAllUsers)
 router.route('/updatePassword').patch(authController.protect, userController.updatePassword)
 router.route('/updateMe').patch(authController.protect, userController.updateMe)
-router.route('/updateMe').delete(authController.protect, userController.deleteMe)
+router.route('/deleteMe').delete(authController.protect, userController.deleteMe)
 
 
 
